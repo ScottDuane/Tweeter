@@ -1,21 +1,10 @@
 require 'twitter'
 
 class Tweeter
-  def initialize
-
-    create_clients
+  def initialize(clients)
+    @handles = ["@realDonaldTrump", "@KKKonscience", "@MarcoFulloShame", "@ManSmashGlasses"]
     create_punchy
     tweet_punchy
-  end
-
-  def create_clients
-    @punchyface = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "enCNABmxC3ti59agEmxkJMiHS"
-      config.consumer_secret     = "RBRxNHTwglbJwgkdfOSN2ZwMhIusuvkRznh8HkvfRXISjnGRHe"
-      config.access_token        = "867975896812052480-cVJGoj1mMzOEKRLb1NaRIjFDesihBoP"
-      config.access_token_secret = "Epyqg9b5RjmBTLbd5cBLZFpN7G9ap4LLfH7Ihr8JAqJlv"
-    end
-
   end
 
   def create_punchy
@@ -27,7 +16,7 @@ class Tweeter
                      "'journalist'", "Canadian"]
     @punchy_adjs = ["angry", "old", "slutty", "liberal", "uncouth", "dotty"]
     @punchy_verbs = ["punch", "slap", "slam", "knock", "ball-kick", "break"]
-    @punchy_names = ["Trump", "Spicey", "Comey", "Rachel Maddow"]
+    @punchy_names = ["Trump", "Spicey", "Comey", "Rachel Maddow", "Ben Jordan"]
   end
 
   def tweet_punchy
@@ -53,5 +42,13 @@ class Tweeter
     end
 
     @punchyface.update(tweet)
+  end
+
+  def create_konscience
+    @konsc_forms = ["HANDLE it's not that NOUN is a NOUN, that's just ADVERB - c'mon NAME @realDonaldTrump",
+                    "HANDLE SECRET time: i VERB in a NOUN to VERB my NOUN",
+                    "HANDLE i VERB PREP NOUN so you could VERB PREP NOUN",
+                    "HANDLE TITLE NAME is saying that TITLE NAME is ADVERB. BOOL facts.",
+                    ]
   end
 end
